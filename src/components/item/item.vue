@@ -6,8 +6,8 @@
     </div>
 
     <div class="item__info">
-      <input type="number" class="count" placeholder="0" value="1" />
-      <div class="color" />
+      <input type="number" class="count" placeholder="0" value="1" min="0" max="100" />
+      <input type="color" class="color">
     </div>
   </div>
 </template>
