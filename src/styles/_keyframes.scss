@@ -1,0 +1,17 @@
+@keyframes arrow-rotate {
+  from {
+    transform: rotate(90deg);
+  }
+
+  25% {
+    transform: rotate(100deg);
+  }
+
+  75% {
+    transform: rotate(80deg);
+  }
+
+  from {
+    transform: rotate(90deg);
+  }
+}

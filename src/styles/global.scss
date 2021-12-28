@@ -1,0 +1,37 @@
+@import '~reseter.css/src/scss/minireseter.scss';
+@import './_mixins.scss';
+
+html {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+}
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  padding: 5px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 45% 1fr;
+  gap: 10%;
+  min-height: 100%;
+
+  padding: 15px;
+  border: $border-black;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]:hover,
+input[type="number"]:focus,
+input[type="number"] {
+  -webkit-appearance: none;
+  margin: 0;
+  border: 1px solid transparent;
+  background: none;
+  outline: none;
+}
