@@ -1,0 +1,23 @@
+@import '../../styles/_mixins.scss';
+
+.display {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  border: $border-black;
+
+  .colors {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 5px;
+    border: $border-black;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px;
+    }
+  }
+}

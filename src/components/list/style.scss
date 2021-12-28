@@ -1,0 +1,10 @@
+.list {
+  &__title {
+    display: flex;
+    gap: 10px;
+  }
+
+  &:not(:first-child) {
+    margin: 10px 0 0;
+  }
+}

@@ -1,0 +1,15 @@
+@import '../../styles/_mixins';
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: $border-black;
+
+  &.active {
+    background: rgba(0, 255, 246, 0.74);
+  }
+
+  &.not-full {
+    background: rgba(96, 90, 90, 0.59);
+  }
+}
