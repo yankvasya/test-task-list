@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import Menu from './components/Menu/Menu.vue';
 import Display from './components/Display/Display.vue';
 import { createRandomLists } from './random';
@@ -37,6 +39,11 @@ export default {
     setLocalStorage(lists) {
       localStorage.setItem('lists', JSON.stringify(lists));
     },
+  },
+  computed: {
+    ...mapState({
+      colors: (state) => state.colors,
+    }),
   },
   created() {
     this.checkLocalStorage();
