@@ -1,35 +1,16 @@
 <template>
   <div class="display">
-    <list
-      class="colors"
-      v-for="l in 5"
-      :key="l"
-      :number="l"
-    >
-      <template #item>
-        <div class="colors__list"
-             v-for="a in 5"
-             :key="a"
-        >
-          <color
-            v-for="c in 50"
-            :key="c"
-          />
-        </div>
-      </template>
-    </list>
+    <list-box />
   </div>
 </template>
 
 <script>
-import list from '../list/list.vue';
-import color from '../color/color.vue';
+import listBox from '../listBox/listBox.vue';
 
 export default {
   name: 'Display',
   components: {
-    list,
-    color,
+    listBox,
   },
 };
 </script>
