@@ -1,16 +1,16 @@
 <template>
  <div class="wrapper">
    <Menu
-     :lists-data="lists"
+     :lists-data="colors"
    />
    <Display
-    :lists-data="lists"
+    :lists-data="colors"
    />
  </div>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 import Menu from './components/Menu/Menu.vue';
 import Display from './components/Display/Display.vue';
@@ -22,19 +22,18 @@ export default {
     Menu,
     Display,
   },
-  data() {
-    return {
-      lists: [],
-    };
-  },
   methods: {
+    ...mapActions({
+      setDefaultColors: 'colors/setDefaultColors',
+    }),
     checkLocalStorage() {
       if (!localStorage.getItem('lists')) {
         const lists = createRandomLists();
         this.setLocalStorage(lists);
       }
 
-      this.lists = JSON.parse(localStorage.getItem('lists'));
+      const colors = JSON.parse(localStorage.getItem('lists'));
+      this.setDefaultColors(colors);
     },
     setLocalStorage(lists) {
       localStorage.setItem('lists', JSON.stringify(lists));

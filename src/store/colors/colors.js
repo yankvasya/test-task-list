@@ -1,4 +1,5 @@
 export default {
+  namespaced: true,
   state: {
     colors: [
       {
@@ -37,6 +38,14 @@ export default {
     ],
   },
   getters: {},
-  mutations: {},
-  actions: {},
+  mutations: {
+    SET_COLORS(state, payload) {
+      this.state.colors = payload;
+    },
+  },
+  actions: {
+    setDefaultColors({ commit }, colors) {
+      commit('SET_COLORS', colors);
+    },
+  },
 };
