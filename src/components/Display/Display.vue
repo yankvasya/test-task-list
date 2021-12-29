@@ -1,6 +1,8 @@
 <template>
   <div class="display">
-    <list-box />
+    <list-box
+      :lists-data="listsData"
+    />
   </div>
 </template>
 
@@ -9,6 +11,9 @@ import listBox from '../listBox/listBox.vue';
 
 export default {
   name: 'Display',
+  props: {
+    listsData: Object,
+  },
   components: {
     listBox,
   },

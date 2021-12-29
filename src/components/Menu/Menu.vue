@@ -1,11 +1,11 @@
 <template>
   <div class="menu">
     <list
-      v-for="l in 5"
+      v-for="(l,npx) in listsData"
       :key="l"
-      :number="l"
-    >
-    </list>
+      :number="npx+1"
+      :current-list="l.items"
+    />
   </div>
 </template>
 
@@ -14,6 +14,9 @@ import list from '../list/list.vue';
 
 export default {
   name: 'Menu',
+  props: {
+    listsData: Object,
+  },
   components: {
     list,
   },

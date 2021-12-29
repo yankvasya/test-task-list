@@ -1,7 +1,11 @@
 <template>
  <div class="wrapper">
-   <Menu />
-   <Display />
+   <Menu
+     :lists-data="lists"
+   />
+   <Display
+    :lists-data="lists"
+   />
  </div>
 </template>
 
@@ -18,7 +22,7 @@ export default {
   },
   data() {
     return {
-      lists: null,
+      lists: [],
     };
   },
   methods: {
@@ -36,8 +40,6 @@ export default {
   },
   created() {
     this.checkLocalStorage();
-
-    console.log(this.lists);
   },
 };
 </script>
