@@ -1,5 +1,7 @@
 export const randomNumber = (min, max) => Math.floor(min + Math.random() * (max + 1 - min));
 
+export const randomColor = () => randomNumber(0, 16777215).toString(16);
+
 export const createRandomLists = () => {
   let lists = Array.from([{}, {}, {}], (x) => x);
 
@@ -9,7 +11,7 @@ export const createRandomLists = () => {
 
     result.items = Array.from({ length: amountLists },
       () => ({
-        color: 'black',
+        color: `#${randomColor()}`,
         num: randomNumber(0, 50),
         checked: !randomNumber(0, 1),
       }));
