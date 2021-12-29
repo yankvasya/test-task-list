@@ -12,9 +12,12 @@
     </div>
     <div v-if="isArrowOpen">
       <item
-        v-for="i in 4"
+        v-for="(i, npx) in currentList"
         :key="i"
-        :number="i"
+        :number="npx+1"
+        :color="i.color"
+        :value="i.num"
+        :check="i.checked"
       />
     </div>
   </div>
@@ -29,6 +32,7 @@ export default {
   name: 'list',
   props: {
     number: Number,
+    currentList: Object,
   },
   components: {
     icon,

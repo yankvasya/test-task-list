@@ -3,7 +3,6 @@
 .colors {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   padding: 5px;
   border: $border-black;
 
@@ -11,5 +10,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
+    margin-bottom: 8px;
+
+    &.none {
+      margin-bottom: 0;
+    }
   }
 }
