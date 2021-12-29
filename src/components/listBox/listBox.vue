@@ -2,18 +2,19 @@
   <div
     class="colors"
     v-for="(l, npx) in listsData"
-        :key="l"
+    :key="l"
   >
     List {{npx+1}}
     <div
       v-for="a in l.items"
-      :class="['colors__list',  {'none': !a.num }]"
-     :key="a"
+      :class="['colors__list',  {'none': (!a.num || !a.checked) }]"
+      :key="a"
     >
       <color
        v-for="c in a.num"
        :key="c"
        :color="a.color"
+       :is-active="a.checked"
       />
     </div>
   </div>
@@ -29,9 +30,6 @@ export default {
   },
   components: {
     color,
-  },
-  mounted() {
-    console.log(this.listsData);
   },
 };
 </script>
