@@ -1,5 +1,4 @@
 @import '../../styles/_mixins.scss';
-@import '../../styles/_keyframes.scss';
 
 .menu {
   display: flex;
@@ -7,20 +6,4 @@
 
   border: $border-black;
   padding: 20px;
-
-  .arrow {
-    width: 16px;
-    height: 16px;
-    color: black;
-    transform: rotate(90deg);
-
-    &:hover {
-      animation: arrow-rotate linear infinite .5s;
-    }
-  }
-
-  .item {
-    width: 90%;
-    margin: 5px auto 0;
-  }
 }
