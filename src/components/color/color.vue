@@ -1,5 +1,5 @@
 <template>
-  <div class="color" :style="`background: ${color}`" />
+  <a href="#" class="color" :style="`background: ${color}`" />
 </template>
 
 <script>
