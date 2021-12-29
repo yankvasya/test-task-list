@@ -13,7 +13,7 @@ export const createRandomLists = () => {
       () => ({
         color: `#${randomColor()}`,
         num: randomNumber(0, 50),
-        checked: !randomNumber(0, 1),
+        checked: !!randomNumber(0, 1),
       }));
 
     return result;
