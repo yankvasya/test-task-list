@@ -1,0 +1,17 @@
+@import '../../styles/_mixins';
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  border: $border-black;
+
+  &.active {
+    //background: rgba(0, 255, 246, 0.74);
+    background: url("https://bit.ly/3mL8wnH") center center/cover no-repeat;
+  }
+
+  &.not-full {
+    background: rgba(96, 90, 90, 0.59);
+    background: url("https://bit.ly/3mLaBQK") center center/cover no-repeat;
+  }
+}

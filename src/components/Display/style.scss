@@ -1,0 +1,9 @@
+@import '../../styles/_mixins.scss';
+
+.display {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  border: $border-black;
+}

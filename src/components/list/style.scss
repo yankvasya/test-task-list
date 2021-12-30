@@ -1,0 +1,36 @@
+@import '../../styles/_keyframes.scss';
+
+.list {
+  &__title {
+    display: flex;
+    gap: 10px;
+  }
+
+  &:not(:first-child) {
+    margin: 10px 0 0;
+  }
+
+  .arrow {
+    width: 16px;
+    height: 16px;
+    color: black;
+    transform: rotate(90deg);
+
+    &:hover {
+      animation: arrow-want-close linear infinite .5s;
+    }
+
+    &.closed {
+      transform: rotate(0deg);
+
+      &:hover {
+        animation: arrow-want-open linear infinite .5s;
+      }
+    }
+  }
+
+  .item {
+    width: 90%;
+    margin: 5px auto 0;
+  }
+}

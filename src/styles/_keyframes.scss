@@ -1,0 +1,35 @@
+@keyframes arrow-want-close {
+  from {
+    transform: rotate(90deg);
+  }
+
+  25% {
+    transform: rotate(100deg);
+  }
+
+  75% {
+    transform: rotate(80deg);
+  }
+
+  from {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes arrow-want-open {
+  from {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  from {
+    transform: rotate(0deg);
+  }
+}

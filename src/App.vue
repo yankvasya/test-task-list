@@ -1,26 +1,49 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+ <div class="wrapper">
+   <Menu />
+   <Display />
+ </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import { mapState, mapActions } from 'vuex';
+
+import Menu from './components/Menu/Menu.vue';
+import Display from './components/Display/Display.vue';
+import { createRandomLists } from './random';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    Menu,
+    Display,
+  },
+  methods: {
+    ...mapActions({
+      setDefaultColors: 'colors/setDefaultColors',
+    }),
+    checkLocalStorage() {
+      if (!localStorage.getItem('lists')) {
+        const lists = createRandomLists();
+        this.setLocalStorage(lists);
+      }
+
+      const colors = JSON.parse(localStorage.getItem('lists'));
+      this.setDefaultColors(colors);
+    },
+    setLocalStorage(lists) {
+      localStorage.setItem('lists', JSON.stringify(lists));
+    },
+  },
+  computed: {
+    ...mapState({
+      colors: (state) => state.colors,
+    }),
+  },
+  created() {
+    this.checkLocalStorage();
   },
 };
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style lang="scss" src="./styles/global.scss" />
