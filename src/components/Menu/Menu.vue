@@ -1,7 +1,7 @@
 <template>
   <div class="menu">
     <list
-      v-for="(l,npx) in listsData"
+      v-for="(l,npx) in colors"
       :key="l"
       :number="npx+1"
       :current-list="l.items"
@@ -10,15 +10,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import list from '../list/list.vue';
 
 export default {
   name: 'Menu',
-  props: {
-    listsData: Object,
-  },
   components: {
     list,
+  },
+  computed: {
+    ...mapState({
+      colors: (state) => state.colors,
+    }),
   },
 };
 </script>

@@ -1,11 +1,7 @@
 <template>
  <div class="wrapper">
-   <Menu
-     :lists-data="colors"
-   />
-   <Display
-    :lists-data="colors"
-   />
+   <Menu />
+   <Display />
  </div>
 </template>
 

@@ -1,8 +1,6 @@
 <template>
   <div class="display">
-    <list-box
-      :lists-data="listsData"
-    />
+    <list-box/>
   </div>
 </template>
 
