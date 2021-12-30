@@ -51,6 +51,17 @@ export default {
         return e;
       });
     },
+    SET_NEW_COLOR(state, payload) {
+      this.state.colors = this.state.colors.map((e) => {
+        e.items.map((i) => {
+          if (i.color === payload.old) i.color = payload.new;
+
+          return i;
+        });
+
+        return e;
+      });
+    },
   },
   actions: {
     setDefaultColors({ commit }, colors) {
@@ -65,6 +76,9 @@ export default {
     },
     changeListVisible({ commit }, list) {
       commit('CHANGE_LIST_VISIBLE', list);
+    },
+    changeColor({ commit }, data) {
+      commit('SET_NEW_COLOR', data);
     },
   },
 };
