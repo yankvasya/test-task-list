@@ -28,6 +28,30 @@ export default {
         return e;
       });
     },
+    // eslint-disable-next-line no-unused-vars
+    CHANGE_LIST_VISIBLE(state, payload) {
+      this.state.colors = this.state.colors.map((e) => {
+        // поиск нужного листа
+        const { stringify } = JSON;
+        if (stringify(payload) === stringify(e.items)) {
+          if (e.items.every((i) => i.checked) || e.items.every((i) => !i.checked)) {
+            e.items.map((i) => {
+              i.checked = !i.checked;
+
+              return i;
+            });
+          } else {
+            e.items.map((i) => {
+              i.checked = true;
+
+              return i;
+            });
+          }
+        }
+
+        return e;
+      });
+    },
   },
   actions: {
     setDefaultColors({ commit }, colors) {
@@ -39,6 +63,9 @@ export default {
     },
     changeVisible({ commit }, color) {
       commit('CHANGE_VISIBLE', color);
+    },
+    changeListVisible({ commit }, list) {
+      commit('CHANGE_LIST_VISIBLE', list);
     },
   },
 };
