@@ -51,6 +51,9 @@ export default {
       this.changeColorCount(data);
     },
   },
+  updated() {
+    this.checked = this.check;
+  },
 };
 </script>
 
