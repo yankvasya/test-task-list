@@ -19,7 +19,7 @@ export default {
     setCheck() {
       const info = { active: this.isActive, full: this.isNotFull };
       this.isActive = !this.isActive;
-      this.$emit('checkboxChanged', info);
+      this.$emit('listCheckboxChanged', info);
     },
   },
 };
