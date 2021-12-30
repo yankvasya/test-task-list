@@ -7,7 +7,7 @@
           :class="['arrow ', {'closed': !isArrowOpen}]"
         />
       </a>
-      <checkbox />
+      <checkbox @listCheckboxChanged="listCheckboxClick" />
       <div>List {{number}}</div>
     </div>
     <div v-if="isArrowOpen">
@@ -18,18 +18,21 @@
         :color="i.color"
         :value="i.num"
         :check="i.checked"
+        @checkboxChanged="checkboxClick"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import icon from '../../icons/icon.vue';
 import checkbox from '../checkbox/checkbox.vue';
 import item from '../item/item.vue';
 
 export default {
   name: 'list',
+  emits: ['listCheckboxChanged, checkboxChanged'],
   props: {
     number: Number,
     currentList: Object,
@@ -45,8 +48,18 @@ export default {
     };
   },
   methods: {
+    ...mapActions({
+      changeVisible: 'colors/changeVisible',
+      changeListVisible: 'colors/changeListVisible',
+    }),
     arrowClick() {
       this.isArrowOpen = !this.isArrowOpen;
+    },
+    checkboxClick(color) {
+      this.changeVisible(color);
+    },
+    listCheckboxClick() {
+      this.changeListVisible(this.currentList);
     },
   },
 };
