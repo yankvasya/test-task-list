@@ -28,7 +28,6 @@ export default {
         return e;
       });
     },
-    // eslint-disable-next-line no-unused-vars
     CHANGE_LIST_VISIBLE(state, payload) {
       this.state.colors = this.state.colors.map((e) => {
         // поиск нужного листа

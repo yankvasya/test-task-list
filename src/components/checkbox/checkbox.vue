@@ -7,12 +7,12 @@ export default {
   name: 'checkbox',
   props: {
     active: Boolean,
-    full: Boolean,
+    notFull: Boolean,
   },
   data() {
     return {
-      isActive: this.active || false,
-      isNotFull: this.full || false,
+      isActive: this.active,
+      isNotFull: !this.active && this.notFull,
     };
   },
   methods: {
@@ -21,6 +21,10 @@ export default {
       this.isActive = !this.isActive;
       this.$emit('listCheckboxChanged', info);
     },
+  },
+  updated() {
+    this.isNotFull = this.notFull;
+    this.isActive = this.active;
   },
 };
 </script>

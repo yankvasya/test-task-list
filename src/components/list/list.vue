@@ -7,7 +7,11 @@
           :class="['arrow ', {'closed': !isArrowOpen}]"
         />
       </a>
-      <checkbox @listCheckboxChanged="listCheckboxClick" />
+      <checkbox
+        @listCheckboxChanged="listCheckboxClick"
+        :not-full="checkAmountVisibleItems()"
+        :active="isAllActive()"
+      />
       <div>List {{number}}</div>
     </div>
     <div v-if="isArrowOpen">
@@ -25,7 +29,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import icon from '../../icons/icon.vue';
 import checkbox from '../checkbox/checkbox.vue';
 import item from '../item/item.vue';
@@ -61,6 +65,21 @@ export default {
     listCheckboxClick() {
       this.changeListVisible(this.currentList);
     },
+    checkAmountVisibleItems() {
+      return !(this.currentList.every((i) => i.checked) || this.currentList.every((i) => !i.checked));
+    },
+    isAllActive() {
+      return this.currentList.every((i) => i.checked);
+    },
+  },
+  computed: {
+    ...mapGetters({
+      checkAmount: 'colors/checkAmount',
+    }),
+  },
+  updated() {
+    this.checkAmountVisibleItems();
+    this.isAllActive();
   },
 };
 </script>
