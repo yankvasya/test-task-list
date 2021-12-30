@@ -1,7 +1,7 @@
 <template>
   <div
     class="colors"
-    v-for="(l, npx) in listsData"
+    v-for="(l, npx) in colors"
     :key="l"
   >
     List {{npx+1}}
@@ -15,21 +15,35 @@
        :key="c"
        :color="a.color"
        :is-active="a.checked"
+       @reduceColors="reduceColors(a.color)"
       />
     </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import color from '../color/color.vue';
 
 export default {
   name: 'listBox',
-  props: {
-    listsData: Object,
-  },
+  emits: ['reduceColors'],
   components: {
     color,
+  },
+  methods: {
+    ...mapActions({
+      changeColorCount: 'colors/changeColorCount',
+    }),
+    reduceColors(colorValue) {
+      const data = { color: colorValue };
+      this.changeColorCount(data);
+    },
+  },
+  computed: {
+    ...mapState({
+      colors: (state) => state.colors,
+    }),
   },
 };
 </script>
