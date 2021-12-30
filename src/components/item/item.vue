@@ -16,7 +16,7 @@
         :value="value"
         ref="input"
         @input="valueChanged" />
-      <input type="color" class="color" :value="color">
+      <input type="color" class="color" :value="color" @change="colorValueChanged" ref="color">
     </div>
   </div>
 </template>
@@ -40,6 +40,7 @@ export default {
   methods: {
     ...mapActions({
       changeColorCount: 'colors/changeColorCount',
+      changeColor: 'colors/changeColor',
     }),
     checkboxClick() {
       this.$emit('checkboxChanged', this.color);
@@ -49,6 +50,11 @@ export default {
       const amount = this.$refs.input.value * 1;
       const data = { color: this.color, amount };
       this.changeColorCount(data);
+    },
+    colorValueChanged() {
+      const color = this.$refs.color.value;
+      const data = { old: this.color, new: color };
+      this.changeColor(data);
     },
   },
   updated() {
